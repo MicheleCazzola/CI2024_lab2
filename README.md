@@ -1,35 +1,28 @@
-# Lab 1 - Set cover problem
+# Lab 2 - Travel Salesman Problem (TSP)
 
 ## Repository overview
 The official notebook is [tsp.ipynb](tsp.ipynb).
 
 ## Official solution
-The official solution has the following characteristics:
-- **single mutation tweak**: a multiple mutation could be more suitable, but it would prevent to speed up the algorithm;
-- **data structure** (called *covering* in the tweak function) keeping track of the number of collected sets each element is covered by: in this way, the algorithm is sped up since the computation of the cost is performed only in the universe dimension;
-- **heuristic** to avoid the algorithm searching invalid solutions: given a negative tweak (a set is removed by the current solution), if an element results to be uncovered by the current solution, the modification is rolled back, blocking the path of the algorithm in that region of the fitness landscape;
-- **random start**: since the cost is computed using the coverage of the universe by the sets collected in the current solution, the algorithm can start from a random solution, without any specific constraint.
 
-It also contains a code snippet with a **greedy optimization** algorithm, which is able to find an approximate solution of the problem, with a factor proportional to *log(n)* with respect to the optimal one, where *n* is the size of the universe. It is possible to check the results by simply running the notebook.
 
 ## Collaborations
 The following parts:
-- tweak function
-- snippet of code for plotting history
+- dvhsfvridf
 
 have been done in collaboration with [Vincenzo Avantaggiato](https://github.com/VincenzoAvantaggiato). 
 
 ## Results
 The results are summarized in the following table:
 
-|Instance name|Greedy cost|Greedy calls|EA cost|EA calls|
-|:-----:|:--:  |:--: |:--:|:--: |
-|Vanuatu|100   |10   |0.2 |20   |
-|Italy  |1000  |100  |0.2 |115  |
-|Russia |10000 |1000 |0.2 |4889 |
-|US     |100000|10000|0.1 |51355|
-|China  |100000|10000|0.2 |59199|
+|Instance name  |Greedy cost    |Greedy calls|EA cost|EA calls|Best result|
+|:-----:        |:--:           |:--: |:--:|:--: |:--:|
+|Vanuatu        |1475.528       |8  |1345.545 |2   |1345.54|
+|Italy          |4436.032       |46  |4209.181 |193  |4172.76|
+|Russia         |40051.587      |167 |33648.848 |1012 |32722.5|
+|US             |46244.333      |326|40599.885 |1983|39016.62|
+|China          |62116.045      |1|52910.648 |4796|None|
 
 **Notes**: the columns:
--  *Greedy/EA calls*: displays the number of steps necessary to the algorithm to find the (local) optimal solution;
+-  *Greedy/EA calls*: displays the number of generations necessary to the algorithm to find the (local) optimal solution;
 -  *Greedy/EA cost*: displays the cost of the solution found, as absolute value (opposite of fitness, conceptually).
