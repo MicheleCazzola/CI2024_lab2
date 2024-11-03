@@ -24,13 +24,13 @@ The evolutionary algorithm is implemented using a GA approach:
 - recombination: inver-over crossover, to preserve traits in the edges, since this TSP is modeled by a DAG, where only adjacent cities matter
 - parent selection: fitness-proportional, by randomly selecting the best individual among 10 candidates
 - survivor selection: deterministic, fitness-based
-- population model: steady state, with offspring size equal to \frac{2}{3} of population summarized
+- population model: steady state, with offspring size equal to $\frac{2}{3}$ of population summarized
 
 #### Initialization
 The initialization plays a relevant role here, since it is observed that the final result has a strong dependency with the technique used.
 
 Here a randomized greedy is used: it follows the same approach of the algorithm used in the [greedy solution](#greedy), but here the k-th nearest city
-is chosen with a probability of 9 * 10^(-1-k), where k starts from 0.
+is chosen with a probability of $9 * {10}^{-(1+k)}$, where k starts from 0.
 This operation is repeated starting from all cities, so the cardinality of the
 population is equal to the number of cities.
 
@@ -69,8 +69,8 @@ The results are summarized in the following table:
 
 **Notes**::
 - the columns *Greedy/EA calls*: displays the number of generations necessary to the algorithm to find the (local) optimal solution;
-- the columns *Greedy/EA cost*: displays the cost of the solution found, as absolute value (opposite of fitness, conceptually).
-- the results are collected among several tries, only the best for each instance is reported
+- the columns *Greedy/EA cost*: displays the cost of the solution found, as absolute value (opposite of fitness, conceptually);
+- the results are collected among several tries, only the best for each instance is reported.
 
 ## Observations
 The evolutionary approach used is sub-optimal (wrt the Wolfram result), but it can be executed in few minutes at the maximum.
